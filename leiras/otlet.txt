@@ -1,0 +1,9 @@
+kosár külön oldalon
+regisztráció belépás űrlap oldal
+szűrés név szerint rendezés
+térkép
+háttérszín váltás 
+látogatók száma
+adminoldal
+vélemény írása csillaggal értékelve posztolás
+
