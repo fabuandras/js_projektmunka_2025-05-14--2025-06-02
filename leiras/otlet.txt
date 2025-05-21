@@ -6,6 +6,8 @@ háttérszín váltás
 látogatók száma
 adminoldal
 vélemény írása csillaggal értékelve posztolás
+Ürlap1: vásárloi adatok felvétele 
+Urlap2: vélemény irás
 
 Tartalom:
 Kézműves ajándékbolt – fa termékek, egyedi gravírozású ajándékok, DIY csomagok.
