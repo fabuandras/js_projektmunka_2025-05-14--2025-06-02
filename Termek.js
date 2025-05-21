@@ -1,3 +1,4 @@
+import TERMEKLISTA from "./termekLista.js";
 export default class Termek {
     #adat;
     #szElem;
