@@ -1,4 +1,4 @@
-export const TERMEKLISTA = [
+ const TERMEKLISTA = [
   {
     id: 1,
     kep: "/kepek/termekek/gravirozott_fa_kulcstarto.png",
@@ -105,3 +105,4 @@ export const TERMEKLISTA = [
     leiras: "Praktikus, letisztult formájú fa telefonállvány otthonra vagy irodába."
   }
 ];
+export default TERMEKLISTA;
