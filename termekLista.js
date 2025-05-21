@@ -1,4 +1,4 @@
-const TERMEKLISTA = [
+export const TERMEKLISTA = [
   {
     id: 1,
     kep: "",
