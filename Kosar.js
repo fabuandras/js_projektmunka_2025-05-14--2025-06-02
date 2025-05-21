@@ -1,89 +1,46 @@
 export default class Kosar {
     #kosarElem;
-    #tartalom;
-    #termekek;
-
+    #kosarLista = [];
     constructor(kosarElem) {
-      this.#kosarElem = kosarElem; // A táblázatot tartalmazó DOM-elem
-      this.#tartalom = []; // A kosár tartalma
-      this.#render(); // Kezdeti megjelenítés
+        this.#kosarElem = kosarElem;
+        this.megjelenit();
     }
-
-    hozzaad(index) {
-      // Termék hozzáadása a kosárhoz
-      const termek = this.#termekek[index];
-      this.#tartalom.push(termek);
-      this.#render(); // Táblázat frissítése
+    hozzaad(termek) {
+        this.#kosarLista.push(termek);
+        this.megjelenit();
     }
-
-    torol(index) {
-      // Termék törlése a kosárból
-      this.#tartalom.splice(index, 1);
-      this.#render(); // Táblázat frissítése
-    }
-
-    #render() {
-      // Táblázat törlése
-      this.#kosarElem.innerHTML = `
-        <table class="table">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Név</th>
-              <th>Ár</th>
-              <th>Akció</th>
-            </tr>
-          </thead>
-          <tbody>
-            ${this.#tartalom
-              .map(
-                (termek, index) => `
-              <tr>
-                <td>${index + 1}</td>
-                <td>${termek.nev}</td>
-                <td>${termek.ar} Ft</td>
-                <td>
-                  <button class="torlesBtn" data-index="${index}">Törlés</button>
-                </td>
-              </tr>
-            `
-              )
-              .join("")}
-          </tbody>
-        </table>
-        <div>
-          <h3>Vásárolható termékek:</h3>
-          <ul>
-            ${this.#termekek
-              .map(
-                (termek, index) => `
-              <li>
+    megjelenit() {
+        this.#kosarElem.innerHTML = "<h3>Kosár tartalma:</h3>";
+        if (this.#kosarLista.length === 0) {
+            this.#kosarElem.innerHTML += "<p>A kosár üres.</p>";
+            return;
+        }
+        const lista = document.createElement("ul");
+        lista.classList.add("list-group");
+        this.#kosarLista.forEach((termek, index) => {
+            const elem = document.createElement("li");
+            elem.classList.add("list-group-item", "d-flex", "justify-content-between", "align-items-center");
+            elem.innerHTML = `
                 ${termek.nev} - ${termek.ar} Ft
-                <button class="hozzaadBtn" data-index="${index}">Hozzáad</button>
-              </li>
-            `
-              )
-              .join("")}
-          </ul>
-        </div>
-      `;
-
-      // Törlés gomb eseménykezelő
-      const torlesBtnList = this.#kosarElem.querySelectorAll('.torlesBtn');
-      torlesBtnList.forEach(btn => {
-        btn.addEventListener('click', (event) => {
-          const index = event.target.getAttribute('data-index');
-          this.torol(index); // Törlés az adott index alapján
+                <button class="btn btn-sm btn-danger" data-index="${index}">🗑</button>
+            `;
+            lista.appendChild(elem);
         });
-      });
-
-      // Hozzáad gomb eseménykezelő
-      const hozzaadBtnList = this.#kosarElem.querySelectorAll('.hozzaadBtn');
-      hozzaadBtnList.forEach(btn => {
-        btn.addEventListener('click', (event) => {
-          const index = event.target.getAttribute('data-index');
-          this.hozzaad(index); // Termék hozzáadása a kosárhoz
+        this.#kosarElem.appendChild(lista);
+        this.#torlesEsemeny();
+    }
+    #torlesEsemeny() {
+        const torlesGombok = this.#kosarElem.querySelectorAll("button[data-index]");
+        torlesGombok.forEach(gomb => {
+            gomb.addEventListener("click", () => {
+                const index = gomb.dataset.index;
+                this.#kosarLista.splice(index, 1);
+                this.megjelenit();
+            });
         });
-      });
+    }
+    torles() {
+        this.#kosarLista = [];
+        this.megjelenit();
     }
 }
