@@ -15,12 +15,12 @@
     <title>BarkácsBáró - Webáruház</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-sm navbar-dark bg-light shadow pt-3 pb-3 fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                <img src="kepek/logo.png" style="width:40px;" class="rounded-pill"> 
+            <a class="navbar-brand" href="teszt.html">
+                <img src="kepek/logo.png" style="width:40px;"> <!-- class="rounded-pill" --> 
             </a>
-            <a class="navbar-brand" href="javascript:void(0)">BarkácsBáró - Webáruház</a>
+            <h1 class="text-dark fw-bold">BarkácsBáró - Webáruház</h1>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -33,21 +33,32 @@
                 <form class="d-flex ms-auto">
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Kezdőlap</a>
+                            <a class="nav-link text-dark" href="#">Kezdőlap</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Termékek</a>
+                            <a class="nav-link text-dark" href="#">Termékek</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-dark" href="#" id="rolunkDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Űrlapok</a>
+                            <ul class="dropdown-menu" aria-labelledby="rolunkDropdown">
+                                <li>
+                                    <a class="dropdown-item" href="#">Vélemény</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Adatbekérés</a>
+                                </li>
+                            </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Rólunk</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="bi bi-cart"></i></a>
+                            <a class="nav-link text-dark" href="#"><i class="bi bi-cart"></i></a>
                         </li>
                     </ul>
                 </form>
             </div>
         </div>
     </nav>
+    <button id="fel" onclick="location.href='#section-landing'">
+        <img class="icon" src="./kepek/arrow-up.png" alt="felfelé nyíl" />
+    </button>
 </body>
 </html>
