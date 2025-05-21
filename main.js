@@ -1,4 +1,5 @@
 import Modell from "./Modell.js";
+import {  } from "./Termekek.js";
 
 const KEZDOLAPGOMB = document.getElementById("kezdolap");
 const TERMEKEKGOMB = document.getElementById("publicTermek");
