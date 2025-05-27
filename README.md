@@ -1,6 +1,11 @@
 > Oldal címe:
 # BarkácsBáró
-## Fabu András, Ilyés Borbála, Kovács Timi (Nao), Halász Dominika
+
+> Feladaton dolgoznak:
+- Ilyés Borbála
+- Fabu András
+- Halász Dominika
+- Kovács Timi (Nao)
 
 (Nem a végleges leosztás)
 #### index.html - András, Bori
