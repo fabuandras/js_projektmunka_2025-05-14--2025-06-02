@@ -1,46 +1,55 @@
 export default class Kosar {
     #kosarElem;
     #kosarLista = [];
-    constructor(kosarElem) {
-        this.#kosarElem = kosarElem;
+
+    constructor(szuloElem) {
+        this.#kosarElem = szuloElem;
         this.megjelenit();
+
+        // Figyelünk a kosárba eseményre
+        window.addEventListener("kosarba", (event) => {
+            this.hozzaad(event.detail);
+        });
     }
+
+    megjelenit() {
+        this.#kosarElem.innerHTML = `
+        <h3>Kosár</h3>
+        <ul id="kosarLista" class="list-group"></ul>
+        `;
+
+        const listaElem = this.#kosarElem.querySelector("#kosarLista");
+
+        if (this.#kosarLista.length === 0) {
+            listaElem.innerHTML = `<li class="list-group-item">A kosár üres</li>`;
+        } else {
+            listaElem.innerHTML = "";
+
+            this.#kosarLista.forEach((termek, index) => {
+                listaElem.innerHTML += `
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    ${termek.nev} - ${termek.ar} Ft
+                    <button class="btn btn-sm btn-danger" data-index="${index}">❌</button>
+                </li>
+                `;
+            });
+
+            this.#kosarElem.querySelectorAll("button[data-index]").forEach((gomb) => {
+                gomb.addEventListener("click", (e) => {
+                    const index = e.target.dataset.index;
+                    this.torles(index);
+                });
+            });
+        }
+    }
+
     hozzaad(termek) {
         this.#kosarLista.push(termek);
         this.megjelenit();
     }
-    megjelenit() {
-        this.#kosarElem.innerHTML = "<h3>Kosár tartalma:</h3>";
-        if (this.#kosarLista.length === 0) {
-            this.#kosarElem.innerHTML += "<p>A kosár üres.</p>";
-            return;
-        }
-        const lista = document.createElement("ul");
-        lista.classList.add("list-group");
-        this.#kosarLista.forEach((termek, index) => {
-            const elem = document.createElement("li");
-            elem.classList.add("list-group-item", "d-flex", "justify-content-between", "align-items-center");
-            elem.innerHTML = `
-                ${termek.nev} - ${termek.ar} Ft
-                <button class="btn btn-sm btn-danger" data-index="${index}">🗑</button>
-            `;
-            lista.appendChild(elem);
-        });
-        this.#kosarElem.appendChild(lista);
-        this.#torlesEsemeny();
-    }
-    #torlesEsemeny() {
-        const torlesGombok = this.#kosarElem.querySelectorAll("button[data-index]");
-        torlesGombok.forEach(gomb => {
-            gomb.addEventListener("click", () => {
-                const index = gomb.dataset.index;
-                this.#kosarLista.splice(index, 1);
-                this.megjelenit();
-            });
-        });
-    }
-    torles() {
-        this.#kosarLista = [];
+
+    torles(index) {
+        this.#kosarLista.splice(index, 1);
         this.megjelenit();
     }
 }
