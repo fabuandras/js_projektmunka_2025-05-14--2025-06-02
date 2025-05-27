@@ -1,11 +1,13 @@
 > Oldal címe:
 # BarkácsBáró
 
+
 > Feladaton dolgozik:
 - Ilyés Borbála
 - Fabu András
 - Halász Dominika
 - Kovács Timea (Nao)
+
 
 > Feladat leosztása:
 - index.html:
@@ -23,8 +25,12 @@
 - README.md:
   - Halász Dominika
 
+
 > UML
+ 
 ![UML](leiras/UML.png)
 
+
 > Drótvázlat
+
 ![UML](leiras/drotVazlat.png)
