@@ -26,11 +26,11 @@
   - Halász Dominika
 
 
-> UML
+> UML (kép):
  
 ![UML](leiras/UML.png)
 
 
-> Drótvázlat
+> Drótvázlat (kép):
 
 ![UML](leiras/drotVazlat.png)
