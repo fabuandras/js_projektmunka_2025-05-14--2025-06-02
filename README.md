@@ -1,25 +1,30 @@
 > Oldal címe:
 # BarkácsBáró
 
-> Feladaton dolgoznak:
+> Feladaton dolgozik:
 - Ilyés Borbála
 - Fabu András
 - Halász Dominika
-- Kovács Timi (Nao)
+- Kovács Timea (Nao)
 
-(Nem a végleges leosztás)
-#### index.html - András, Bori
-#### main.js - Bori
-#### termekLista.js - Nao
-#### Termek.js - Nao
-#### Termekek.js - Nao
-#### Kosar.js - András, Nao(csak az alapot)
-#### -
+> Feladat leosztása:
+- index.html:
+  - Fabu András, Ilyés Borbála (alap)
+- main.js:
+  - Ilyés Borbála
+- termekLista.js:
+  - Kovács Tímea (Nao), Fabu András (módosítás)
+- Termek.js:
+  - Kovács Tímea (Nao)
+- Termekek.js:
+  - Kovács Tímea (Nao)
+- Kosar.js:
+  - Fabu András
+- README.md:
+  - Halász Dominika
 
 > UML
-
 ![UML](leiras/UML.png)
 
 > Drótvázlat
-
 ![UML](leiras/drotVazlat.png)
