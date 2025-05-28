@@ -1,5 +1,6 @@
 import Termekek from "./Termekek.js";
 import TERMEKLISTA from "./termekLista.js";
+import Kosar from "./Kosar.js";
 import { urlapBetoltes, urlapInit } from "./Velemeny.js";
 import { adatbekeroMegjelenit } from "./Adatbekero.js";
 
@@ -60,8 +61,16 @@ KEZDOLAPGOMB.addEventListener("click", () => {
 });
 
 TERMEKEKGOMB.addEventListener("click", () => {
-  TAROLO.innerHTML = `<article class="col-lg-9">Termékek</article><aside class="col-lg-3">Kosár</aside>`;
-  termekek.megjelenit();
+  TAROLO.innerHTML = `
+    <article class="col-lg-9 row" id="termekekTarolo"></article>
+    <aside class="col-lg-3" id="kosarTarolo"></aside>
+  `;
+
+  const termekTarolo = document.getElementById("termekekTarolo");
+  const kosarTarolo = document.getElementById("kosarTarolo");
+
+  termekek.megjelenit(termekTarolo); // ezt meg kell támogatni
+  new Kosar(kosarTarolo);
 });
 
 URLAPGOMB.addEventListener("click", () => {

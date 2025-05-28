@@ -9,12 +9,15 @@ export default class Termekek {
         this.megjelenit();
         this.kosarbaEsemeny();
     }
-    megjelenit() {
-        this.#szElem.innerHTML = "";
-        this.#termekekLista.forEach((adat, index) => {
-            new Termek(adat, this.#szElem, index);
-        });
+    megjelenit(ujElem) {
+    if (ujElem) {
+        this.#szElem = ujElem;
     }
+    this.#szElem.innerHTML = "";
+    this.#termekekLista.forEach((adat, index) => {
+        new Termek(adat, this.#szElem, index);
+    });
+}
     kosarbaEsemeny() {
         window.addEventListener("kosarba", (event) => {
             const termek = event.detail;
