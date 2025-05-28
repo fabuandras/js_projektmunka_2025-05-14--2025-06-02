@@ -1,6 +1,6 @@
 import Termekek from "./Termekek.js";
 import TERMEKLISTA from "./termekLista.js";
-
+//nav rész ------------
 const KEZDOLAPGOMB = document.getElementById("kezdolap");
 const TERMEKEKGOMB = document.getElementById("publicTermek");
 const KOSARGOMB = document.getElementById("publicKosar");
