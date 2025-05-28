@@ -24,11 +24,11 @@ Kézműves ajándékbolt – fa termékek, egyedi gravírozású ajándékok, DI
 +. stilus, mozgo háterek,haterszin váltás
 
 0.domi
-1.Bori
+1.Bori      ---------kész
 2.andrás
 3.Nao
 4. andras domi
-5.Bori
+5.Bori      ---------kész
 6.Nao
 7.-
 8.Domi
