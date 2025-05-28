@@ -121,7 +121,7 @@ h2 {
     border-radius: 12px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    width: 250px;
+    /*width: 250px;*/
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     background: linear-gradient(145deg, #fff, #f7f7f7); /* Finom színátmenet */
@@ -235,6 +235,92 @@ h2 {
     font-size: 1.1rem;
     color: #0056b3;
 }
+/* Alap container */
+#termekekContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  padding: 2rem;
+  background-color: #f9f5f0; /* halvány, krémszínű háttér */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #5a3e1b; /* sötét barna szöveg */
+}
+
+/* Termékkártya */
+.termekKartya .card {
+  /*width: 20rem;*/
+  border-radius: 12px;
+  border: none;
+  box-shadow: 0 6px 15px rgba(90, 62, 27, 0.25);
+  background: linear-gradient(145deg, #d9c59d, #c1a953); /* őszi barna-sárga árnyalat */
+  color: #3e2f11; /* sötétebb barna */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.termekKartya .card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(90, 62, 27, 0.45);
+}
+
+/* Kép */
+.termekKartya img {
+  border-radius: 12px 12px 0 0;
+  height: 160px;
+  object-fit: cover;
+  border-bottom: 2px solid #b2903f; /* aranysárga határ */
+}
+
+/* Kártya tartalom */
+.termekKartya .card-body {
+  padding: 1.5rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* Cím */
+.termekKartya .card-title {
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: #4a3713;
+  margin: 0;
+}
+
+/* Ár */
+.termekKartya .fw-bold {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #705c1b; /* mély arany */
+}
+
+/* Leírás */
+.termekKartya .card-text {
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: #5c4a1f;
+  flex-grow: 1;
+}
+
+/* Kosárba gomb */
+.termekKartya button {
+  align-self: flex-start;
+  background-color: #a67c00;
+  border: none;
+  padding: 0.5rem 1.3rem;
+  border-radius: 8px;
+  color: #fff7d1;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.termekKartya button:hover {
+  background-color: #d0aa18;
+}
+
 
 /* Reszponzív dizájn */
 @media (max-width: 768px) {
@@ -244,7 +330,7 @@ h2 {
     }
 
     .termekek-container li {
-        width: 100%;
+        /*width: 100%;*/
         max-width: 300px;
     }
 

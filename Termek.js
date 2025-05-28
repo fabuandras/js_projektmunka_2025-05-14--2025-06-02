@@ -12,8 +12,12 @@ export default class Termek {
     megjelenit() {
         const termekKartya = document.createElement("div");
         termekKartya.classList.add("termekKartya");
+        termekKartya.classList.add("col-md-4");
+        termekKartya.classList.add("col-lg-3");
+        termekKartya.classList.add("col-sm-6");
+       
         termekKartya.innerHTML = `
-            <div class="card m-2" style="width: 18rem;">
+            <div class="card m-2">
                 <img src="${this.#adat.kep}" class="card-img-top" alt="${this.#adat.nev}" />
                 <div class="card-body">
                     <h5 class="card-title">${this.#adat.nev}</h5>
