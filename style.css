@@ -1,13 +1,43 @@
-/* Termékek konténer - CSS Grid */
+/* Alap stílus */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fdfaf5;
+  color: #3e2f11;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header */
+header {
+  background: linear-gradient(135deg, #a67c00, #d9c59d);
+  color: #5a3e1b;
+  padding: 1.5rem 2rem;
+  text-align: center;
+  border-radius: 0 0 20px 20px;
+  box-shadow: 0 6px 12px rgba(166, 124, 0, 0.4);
+  font-weight: 700;
+  font-size: 2.5rem;
+}
+
+/* Footer */
+footer {
+  background: linear-gradient(135deg, #d9c59d, #a67c00);
+  color: #5a3e1b;
+  padding: 1.2rem 2rem;
+  text-align: center;
+  border-radius: 20px 20px 0 0;
+  box-shadow: inset 0 4px 12px rgba(166, 124, 0, 0.3);
+  font-weight: 600;
+}
+
+/* Termékek konténer */
 #termekekContainer {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
   gap: 1.5rem;
   justify-content: center;
   padding: 2rem;
-  background-color: #f9f5f0; /* halvány krémes háttér */
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #5a3e1b; /* sötét barna szöveg */
+  background-color: #f9f5f0;
 }
 
 /* Termékkártya */
@@ -15,8 +45,8 @@
   border-radius: 12px;
   border: none;
   box-shadow: 0 6px 15px rgba(90, 62, 27, 0.25);
-  background: linear-gradient(145deg, #d9c59d, #c1a953); /* őszi barna-sárga árnyalat */
-  color: #3e2f11; /* sötétebb barna */
+  background: linear-gradient(145deg, #d9c59d, #c1a953);
+  color: #3e2f11;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
   display: flex;
@@ -28,19 +58,17 @@
   box-shadow: 0 12px 25px rgba(90, 62, 27, 0.45);
 }
 
-/* Kép - megtartjuk az arányokat és nem vágjuk le */
 .termekKartya img {
   border-radius: 12px 12px 0 0;
   height: auto;
   max-height: 180px;
   width: 100%;
   object-fit: contain;
-  background-color: #f1e6c9; /* halvány háttér a kép mögött */
+  background-color: #f1e6c9;
   padding: 0.5rem;
-  border-bottom: 2px solid #b2903f; /* aranysárga határ */
+  border-bottom: 2px solid #b2903f;
 }
 
-/* Kártya test */
 .termekKartya .card-body {
   padding: 1.5rem 1.75rem;
   display: flex;
@@ -49,7 +77,6 @@
   flex-grow: 1;
 }
 
-/* Cím */
 .termekKartya .card-title {
   font-weight: 700;
   font-size: 1.25rem;
@@ -57,14 +84,12 @@
   margin: 0;
 }
 
-/* Ár */
 .termekKartya .fw-bold {
   font-weight: 600;
   font-size: 1.1rem;
   color: #705c1b;
 }
 
-/* Leírás */
 .termekKartya .card-text {
   font-size: 0.95rem;
   line-height: 1.4;
@@ -72,7 +97,6 @@
   flex-grow: 1;
 }
 
-/* Kosárba gomb */
 .termekKartya button {
   align-self: flex-start;
   background-color: #a67c00;
@@ -91,27 +115,191 @@
   background-color: #d0aa18;
 }
 
-/* Header */
-header {
-  background: linear-gradient(135deg, #a67c00, #d9c59d);
-  color: #5a3e1b;
-  padding: 1.5rem 2rem;
-  text-align: center;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  border-radius: 0 0 20px 20px;
-  box-shadow: 0 6px 12px rgba(166, 124, 0, 0.4);
-  font-weight: 700;
-  font-size: 2.5rem;
+/* Vélemény űrlap */
+#velemenyForm {
+  background-color: #fffaf1;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(125, 85, 20, 0.15);
+  max-width: 700px;
+  margin: auto;
 }
 
-/* Footer */
-footer {
-  background: linear-gradient(135deg, #d9c59d, #a67c00);
-  color: #5a3e1b;
-  padding: 1.2rem 2rem;
+#velemenyForm h2 {
+  font-size: 2rem;
+  color: #a67c00;
+  margin-bottom: 1.5rem;
   text-align: center;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  border-radius: 20px 20px 0 0;
-  box-shadow: inset 0 4px 12px rgba(166, 124, 0, 0.3);
+}
+
+#velemenyForm .form-label {
   font-weight: 600;
+  color: #5c4521;
+}
+
+#velemenyForm .form-control {
+  border: 1px solid #c6ab7c;
+  border-radius: 8px;
+  padding: 0.75rem;
+  background-color: #fffaf1;
+  transition: border-color 0.3s;
+}
+
+#velemenyForm .form-control:focus {
+  border-color: #a67c00;
+  box-shadow: 0 0 0 0.2rem rgba(166, 124, 0, 0.25);
+}
+
+#velemenyForm button {
+  background-color: #a67c00;
+  border: none;
+  padding: 0.6rem 1.5rem;
+  color: #fff8e1;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+#velemenyForm button:hover {
+  background-color: #d4a017;
+}
+
+/* Csillagok */
+#starRating .star {
+  font-size: 2rem;
+  color: #d4a017;
+  transition: transform 0.2s;
+}
+
+#starRating .star:hover {
+  transform: scale(1.2);
+  color: #b8860b;
+  cursor: pointer;
+}
+
+/* Vélemény kártyák */
+.velemeny-kartyak .card {
+  background: linear-gradient(145deg, #f8ecd4, #fff8e1);
+  border: 1px solid #e0c89f;
+  box-shadow: 0 4px 10px rgba(125, 85, 20, 0.1);
+  border-radius: 10px;
+  transition: transform 0.3s;
+}
+
+.velemeny-kartyak .card:hover {
+  transform: translateY(-5px);
+}
+
+.velemeny-kartyak .card-title {
+  color: #6a4d1f;
+  font-weight: 700;
+}
+
+.velemeny-kartyak .card-text {
+  color: #5a3e1b;
+  font-size: 1rem;
+}
+
+/* Adatbekérő űrlap */
+#adatform {
+  background-color: #f9f5f0;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(90, 62, 27, 0.15);
+  color: #4a3713;
+  max-width: 900px;
+  margin: 2rem auto;
+}
+
+#adatform h2,
+#adatform h4 {
+  color: #5a3e1b;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+#adatform label {
+  font-weight: 600;
+  color: #705c1b;
+  margin-bottom: 0.25rem;
+  display: block;
+}
+
+#adatform input[type="text"],
+#adatform input[type="email"],
+#adatform input[type="tel"],
+#adatform input[type="date"],
+#adatform input[type="month"],
+#adatform input[type="file"],
+#adatform textarea,
+#adatform select {
+  border: 1px solid #d1b56c;
+  border-radius: 8px;
+  padding: 0.6rem 1rem;
+  background-color: #fffaf1;
+  color: #3e2f11;
+  width: 100%;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  margin-bottom: 1rem;
+}
+
+#adatform input:focus,
+#adatform textarea:focus,
+#adatform select:focus {
+  border-color: #c1963f;
+  box-shadow: 0 0 0 3px rgba(193, 150, 63, 0.3);
+  outline: none;
+}
+
+#adatform .invalid-feedback {
+  color: #a94442;
+  font-size: 0.9rem;
+  margin-top: -0.5rem;
+  margin-bottom: 1
+}
+#termekekContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  column-gap: 20px;  /* vízszintes távolság */
+  row-gap: 10px;        /* függőleges távolság */
+  justify-content: center;
+  padding: 2rem;
+  background-color: #f9f5f0;
+  align-items: stretch;
+}
+
+
+.termekKartya .card {
+  height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  border-radius: 12px;
+  border: none;
+  box-shadow: 0 6px 15px rgba(90, 62, 27, 0.25);
+  background: linear-gradient(145deg, #d9c59d, #c1a953);
+  color: #3e2f11;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.termekKartya .card-body {
+  padding: 1.5rem 1.75rem;
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  gap: 0.75rem;
+}
+
+.termekKartya button {
+  place-self: start end;
+  background-color: #a67c00;
+  border: none;
+  padding: 0.5rem 1.3rem;
+  border-radius: 8px;
+  color: #fff7d1;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  margin-top: 1rem;
 }
