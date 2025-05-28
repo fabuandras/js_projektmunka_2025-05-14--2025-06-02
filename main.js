@@ -4,6 +4,11 @@ import { urlapBetoltes, urlapInit } from "./Velemeny.js";
 import { adatbekeroMegjelenit } from "./Adatbekero.js";
 import { megjelenitKezdolap } from "./Kezdolap.js";  // ide importálod
 
+
+// ...
+
+
+
 // DOM elemek
 const KEZDOLAPGOMB = document.getElementById("kezdolap");
 const TERMEKEKGOMB = document.getElementById("publicTermek");
@@ -35,6 +40,17 @@ URLAPGOMB.addEventListener("click", () => {
 ADATURLAPGOMB.addEventListener("click", () => {
   adatbekeroMegjelenit(TAROLO);
 });
+KEZDOLAPGOMB.addEventListener("click", () => {
+  megjelenitKezdolap(velemenyek);
+});
+
+URLAPGOMB.addEventListener("click", () => {
+  urlapBetoltes(TAROLO);
+  urlapInit(TAROLO, velemenyek, () => megjelenitKezdolap(velemenyek));
+});
+
+// Alapértelmezett indulás: kezdőlap megjelenítése
+megjelenitKezdolap(velemenyek);
 
 // Alapértelmezett indulás: kezdőlap megjelenítése
 megjelenitKezdolap();

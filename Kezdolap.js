@@ -1,6 +1,6 @@
 const TAROLO = document.getElementById("tarolo");
 
-export function megjelenitKezdolap() {
+export function megjelenitKezdolap(velemenyek = []) {
   TAROLO.innerHTML = `
     <article class="col-lg-12 kezdolap-article">
       <section class="mb-5">
@@ -47,6 +47,37 @@ export function megjelenitKezdolap() {
         </div>
 
         <p>Csapatunk összhangja és szakmai hozzáértése garantálja, hogy üzletünkben a minőség és a vásárlói elégedettség mindig első helyen áll.</p>
+      </section>
+
+      <section class="mb-5">
+        <h2>Vélemények</h2>
+        <div id="velemenyekLista">
+          ${
+            velemenyek.length === 0
+              ? `<p>Még nincs vélemény.</p>`
+              : velemenyek
+                  .map(
+                    (velemeny) => `
+            <div class="card mb-3">
+              <div class="card-body">
+                <h5 class="card-title">${velemeny.nev} 
+                  <small class="text-warning">${'★'.repeat(
+                    velemeny.ertekeles
+                  )}${'☆'.repeat(5 - velemeny.ertekeles)}</small>
+                </h5>
+                <p class="card-text">${velemeny.velemeny}</p>
+                ${
+                  velemeny.kepURL
+                    ? `<img src="${velemeny.kepURL}" alt="Csatolt kép" class="img-fluid" style="max-height: 200px;"/>`
+                    : ''
+                }
+              </div>
+            </div>
+          `
+                  )
+                  .join('')
+          }
+        </div>
       </section>
     </article>
   `;
