@@ -64,3 +64,15 @@
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
 }
+
+
+.velemeny-gomb:hover {
+    background-color: white;
+    color: black !important; /* a !important: felülírja a bootstrap beállításait */
+}
+
+
+.halvany-hover:hover {
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
