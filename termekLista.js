@@ -106,3 +106,4 @@
   }
 ];
 export default TERMEKLISTA;
+//teszt commithoz
