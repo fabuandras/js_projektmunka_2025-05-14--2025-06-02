@@ -28,6 +28,7 @@ __
   - Halász Dominika
 __
 
+
 - 0.Domi: UML
 - 1.Bori: Nav linkek működjenk
 - 2.András: Normálisan jelenjenek meg a termékek(fel ugros gomb jobb alul)
@@ -38,6 +39,7 @@ __
 - 7.-: Szűrések rendezes
 - 8.Domi: Readmi frissítések
 - +.András: Stílus, mozgó hátterek,háttérszín váltás
+  
 __
 
 > UML (kép):
