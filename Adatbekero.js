@@ -161,11 +161,13 @@ export function adatbekeroMegjelenit(tarolo) {
     if (!form.checkValidity()) {
       e.stopPropagation();
       form.classList.add("was-validated");
-      return;
+      return ;
     }
 
     // Sikeres beküldés
     alert("Az adatok sikeresen elküldve!");
+    
+    
 
     form.reset();
     form.classList.remove("was-validated");
