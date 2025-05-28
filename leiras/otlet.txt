@@ -12,4 +12,26 @@ Urlap2: vélemény irás
 Tartalom:
 Kézműves ajándékbolt – fa termékek, egyedi gravírozású ajándékok, DIY csomagok.
 
+0.uml
+1.nav linkek mukodjenk
+2.Normálisan jelenjenek meg a termékek(fel ugros gomb jobb alul))
+3,kosárba gomb(kosár oldalon láthato legyen9)
+4. kezdolap tartalma(tetejen lapozos kép, cég háttere,napi termek az alján,fel ugros gomb jobb alul)
+5. ürlapok (vélemeény posztolás a kezdolapon,csilagokkal)
+6.kosárba megjelenés ,vásárlás inditása(át tesz az adatbekérésre )
+7. szurések rendezes
+8.readmi frisiteset
++. stilus, mozgo háterek,haterszin váltás
+
+0.domi
+1.Bori
+2.andrás
+3.Nao
+4. andras domi
+5.Bori
+6.Nao
+7.-
+8.Domi
++András
+
 
