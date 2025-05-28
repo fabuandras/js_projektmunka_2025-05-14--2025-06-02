@@ -1,255 +1,17 @@
-/* Alap beállítások */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Roboto', sans-serif;
-    color: #333;
-    line-height: 1.6;
-    padding: 20px;
-    max-width: 1200px;
-    margin: auto;
-    background-color: #f0f4f8; /* Világos kék árnyalat */
-    background-image: url('background-pattern.png'); /* Háttér textúra */
-    background-repeat: repeat;
-    background-size: cover;
-    position: relative;
-    overflow-x: hidden; /* Elkerüljük a vízszintes görgetést */
-}
-
-/* Fejléc */
-header {
-    background: linear-gradient(135deg, #0056b3, #007bff); /* Színátmenet a háttérben */
-    color: white;
-    padding: 40px 0;
-    text-align: center;
-    border-radius: 15px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-header h1 {
-    font-size: 3rem;
-    font-weight: bold;
-    letter-spacing: 1px;
-    margin-bottom: 10px;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3); /* Fejléc szöveg árnyékolása */
-}
-
-header p {
-    font-size: 1.2rem;
-    margin-top: 5px;
-    color: #d1d1d1;
-}
-
-/* Kosár és termékek szekció */
-.kosar-container,
-.termekek-container {
-    margin: 40px 0;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-/* Szövegek kiemelése */
-h2 {
-    font-size: 2.4rem;
-    margin-bottom: 20px;
-    color: #333;
-    text-align: center;
-    font-weight: bold;
-    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1); /* Címsor árnyékolás */
-}
-
-/* Táblázat stílus */
-.table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 30px;
-    background-color: #fff;
-    border-radius: 8px;
-}
-
-.table th, .table td {
-    padding: 15px;
-    text-align: left;
-    border: 1px solid #ddd;
-}
-
-.table th {
-    background-color: #0056b3; /* Mély kék háttér a fejlécnek */
-    color: white;
-    font-size: 1.1rem;
-    font-weight: 600;
-}
-
-.table td {
-    background-color: #fff;
-    font-size: 1.1rem;
-}
-
-.table td button {
-    background-color: #dc3545; /* Piros törlés gomb */
-    color: white;
-    padding: 8px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.table td button:hover {
-    background-color: #c82333;
-}
-
-/* Vásárolható termékek lista */
-.termekek-container ul {
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    padding: 0;
-}
-
-.termekek-container li {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 12px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    /*width: 250px;*/
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    background: linear-gradient(145deg, #fff, #f7f7f7); /* Finom színátmenet */
-}
-
-.termekek-container li:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.termekek-container li h3 {
-    font-size: 1.6rem;
-    margin-bottom: 10px;
-    color: #0056b3; /* Kék szín a termékek nevéhez */
-    font-weight: 600;
-    transition: color 0.3s ease;
-}
-
-.termekek-container li:hover h3 {
-    color: #004085; /* Hover szín a termékek nevének */
-}
-
-.termekek-container li p {
-    font-size: 1.1rem;
-    color: #666;
-    margin-bottom: 15px;
-}
-
-.termekek-container li button {
-    background-color: #0056b3; /* Kék színű "Hozzáadás" gomb */
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
-}
-
-.termekek-container li button:hover {
-    background-color: #004085; /* Sötétebb kék hover állapot */
-    transform: scale(1.05); /* Gombok nagyobbodnak hover állapotban */
-}
-
-/* Kosár összesítés */
-.kosar-summary {
-    background-color: #fff;
-    padding: 25px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    margin-top: 30px;
-    text-align: center;
-    transition: transform 0.3s ease;
-}
-
-.kosar-summary:hover {
-    transform: translateY(-5px); /* Kosár összesítő felemelkedése hover állapotban */
-}
-
-.kosar-summary h3 {
-    font-size: 2rem;
-    margin-bottom: 15px;
-    color: #333;
-}
-
-.kosar-summary p {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-}
-
-.kosar-summary .total-price {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #0056b3; /* Kék szín a végösszeghez */
-    margin-top: 20px;
-    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
-}
-
-/* Végtelen görgetés (Infinite Scroll) */
-.termekek-container {
-    max-height: 80vh;
-    overflow-y: auto; /* A termékek listája görgethető */
-}
-
-.termekek-container ul {
-    padding: 0;
-}
-
-.termekek-container li {
-    margin-bottom: 20px;
-}
-
-.termekek-container::after {
-    content: '';
-    display: block;
-    height: 20px;
-}
-
-.termekek-container.loading {
-    display: block;
-    text-align: center;
-    padding: 10px;
-    color: #333;
-    font-size: 1.2rem;
-    background-color: #e7f1ff;
-    border-radius: 8px;
-}
-
-.termekek-container.loading::after {
-    content: "Betöltés...";
-    font-size: 1.1rem;
-    color: #0056b3;
-}
-/* Alap container */
+/* Termékek konténer - CSS Grid */
 #termekekContainer {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
   gap: 1.5rem;
   justify-content: center;
   padding: 2rem;
-  background-color: #f9f5f0; /* halvány, krémszínű háttér */
+  background-color: #f9f5f0; /* halvány krémes háttér */
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #5a3e1b; /* sötét barna szöveg */
 }
 
 /* Termékkártya */
 .termekKartya .card {
-  /*width: 20rem;*/
   border-radius: 12px;
   border: none;
   box-shadow: 0 6px 15px rgba(90, 62, 27, 0.25);
@@ -257,6 +19,8 @@ h2 {
   color: #3e2f11; /* sötétebb barna */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
 }
 
 .termekKartya .card:hover {
@@ -264,20 +28,25 @@ h2 {
   box-shadow: 0 12px 25px rgba(90, 62, 27, 0.45);
 }
 
-/* Kép */
+/* Kép - megtartjuk az arányokat és nem vágjuk le */
 .termekKartya img {
   border-radius: 12px 12px 0 0;
-  height: 160px;
-  object-fit: cover;
+  height: auto;
+  max-height: 180px;
+  width: 100%;
+  object-fit: contain;
+  background-color: #f1e6c9; /* halvány háttér a kép mögött */
+  padding: 0.5rem;
   border-bottom: 2px solid #b2903f; /* aranysárga határ */
 }
 
-/* Kártya tartalom */
+/* Kártya test */
 .termekKartya .card-body {
   padding: 1.5rem 1.75rem;
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
+  flex-grow: 1;
 }
 
 /* Cím */
@@ -292,7 +61,7 @@ h2 {
 .termekKartya .fw-bold {
   font-weight: 600;
   font-size: 1.1rem;
-  color: #705c1b; /* mély arany */
+  color: #705c1b;
 }
 
 /* Leírás */
@@ -315,38 +84,34 @@ h2 {
   font-size: 1rem;
   transition: background-color 0.3s ease;
   cursor: pointer;
+  margin-top: auto;
 }
 
 .termekKartya button:hover {
   background-color: #d0aa18;
 }
 
+/* Header */
+header {
+  background: linear-gradient(135deg, #a67c00, #d9c59d);
+  color: #5a3e1b;
+  padding: 1.5rem 2rem;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  border-radius: 0 0 20px 20px;
+  box-shadow: 0 6px 12px rgba(166, 124, 0, 0.4);
+  font-weight: 700;
+  font-size: 2.5rem;
+}
 
-/* Reszponzív dizájn */
-@media (max-width: 768px) {
-    .termekek-container ul {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .termekek-container li {
-        /*width: 100%;*/
-        max-width: 300px;
-    }
-
-    header h1 {
-        font-size: 2rem;
-    }
-
-    .kosar-summary {
-        margin-top: 20px;
-    }
-
-    .table th, .table td {
-        font-size: 0.9rem;
-    }
-
-    .kosar-summary .total-price {
-        font-size: 1.4rem;
-    }
+/* Footer */
+footer {
+  background: linear-gradient(135deg, #d9c59d, #a67c00);
+  color: #5a3e1b;
+  padding: 1.2rem 2rem;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  border-radius: 20px 20px 0 0;
+  box-shadow: inset 0 4px 12px rgba(166, 124, 0, 0.3);
+  font-weight: 600;
 }
