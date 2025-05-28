@@ -6,7 +6,7 @@ export default class Kosar {
         this.#kosarElem = szuloElem;
         this.megjelenit();
 
-        // Figyelünk a kosárba eseményre
+        // Figyeljük a "kosarba" eseményt
         window.addEventListener("kosarba", (event) => {
             this.hozzaad(event.detail);
         });
@@ -14,8 +14,8 @@ export default class Kosar {
 
     megjelenit() {
         this.#kosarElem.innerHTML = `
-        <h3>Kosár</h3>
-        <ul id="kosarLista" class="list-group"></ul>
+            <h3 class="mb-3">🛒 Kosár</h3>
+            <ul id="kosarLista" class="list-group"></ul>
         `;
 
         const listaElem = this.#kosarElem.querySelector("#kosarLista");
@@ -23,20 +23,18 @@ export default class Kosar {
         if (this.#kosarLista.length === 0) {
             listaElem.innerHTML = `<li class="list-group-item">A kosár üres</li>`;
         } else {
-            listaElem.innerHTML = "";
-
-            this.#kosarLista.forEach((termek, index) => {
-                listaElem.innerHTML += `
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    ${termek.nev} - ${termek.ar} Ft
-                    <button class="btn btn-sm btn-danger" data-index="${index}">❌</button>
-                </li>
-                `;
-            });
+            listaElem.innerHTML = this.#kosarLista
+                .map((termek, index) => `
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        ${termek.nev} – ${termek.db} db – ${termek.ar * termek.db} Ft
+                        <button class="btn btn-sm btn-danger" data-index="${index}">❌</button>
+                    </li>
+                `)
+                .join("");
 
             this.#kosarElem.querySelectorAll("button[data-index]").forEach((gomb) => {
                 gomb.addEventListener("click", (e) => {
-                    const index = e.target.dataset.index;
+                    const index = parseInt(e.target.dataset.index);
                     this.torles(index);
                 });
             });
@@ -44,7 +42,12 @@ export default class Kosar {
     }
 
     hozzaad(termek) {
-        this.#kosarLista.push(termek);
+        const letezoIndex = this.#kosarLista.findIndex(t => t.id === termek.id);
+        if (letezoIndex > -1) {
+            this.#kosarLista[letezoIndex].db++;
+        } else {
+            this.#kosarLista.push({ ...termek, db: 1 });
+        }
         this.megjelenit();
     }
 
