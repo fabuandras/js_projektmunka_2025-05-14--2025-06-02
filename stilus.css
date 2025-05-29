@@ -1,8 +1,12 @@
+/*
 @import url("https://fonts.googleapis.com/css2?family=MuseoModerno:wght@300;400;500&display=swap");
+*/
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
 * {
     box-sizing: border-box;
     font-family: "MuseoModerno", sans-serif;
+    font-family: "Open Sans", sans-serif;
 }
 
 
@@ -23,12 +27,13 @@
 .hero-content {
   position: absolute;
   top: 50%;
-  left: 15%; /* korábban 5% volt, most egy kellemes köztes érték */
-  transform: translateY(-50%);
+  left: 50%;
+  transform: translate(-50%, -50%);
   z-index: 10;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
   max-width: 500px;
 }
+
 
 
 
@@ -53,10 +58,25 @@
   background-color: rgba(0, 0, 0, 0.3); /* sötét áttetsző háttér */
   backdrop-filter: blur(5px);          /* homályosító üveghatás */
   -webkit-backdrop-filter: blur(10px);  /* Safari támogatás */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 10); /* árnyék */
+  /*
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 10); / árnyék /
+  */
+  box-shadow: 0 0px 0px rgba(0, 0, 0, 10); /* árnyék */
   transition: background-color 0.3s ease;
 }
 
+.betustilus {
+  font-size: 14px;
+}
+
+.betustilus_oldalcim {
+  font-size: 48px !important;
+  letter-spacing: 5px;
+}
+
+.letter-spacing {
+  letter-spacing: 2px;
+}
 
 .navbar.bg-dark.blur-navbar {
   background-color: #212529 !important; /* vagy amit a bg-dark-nak szeretnél */
@@ -70,8 +90,13 @@
     color: black !important; /* a !important: felülírja a bootstrap beállításait */
 }
 
-
 .halvany-hover:hover {
   opacity: 0.6;
   transition: opacity 0.3s ease;
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+  background-color: white;
+  color: black !important;
+  transition: all 0.3s ease;
 }
