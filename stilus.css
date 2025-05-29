@@ -100,3 +100,46 @@
   color: black !important;
   transition: all 0.3s ease;
 }
+
+
+/* Mobilnézet */
+
+@media (max-width: 576px) {
+  .navbar-collapse {
+    text-align: center;
+  }
+
+  .navbar-nav {
+    margin: 0 auto;             /* vízszintesen középre helyezi */
+    align-items: center;        /* menüpontokat középre igazítja */
+    flex-direction: column;     /* egymás alá rakja */
+  }
+
+  .navbar-nav .nav-item {
+    margin: 10px 0;             /* kis függőleges térköz a menüpontok között */
+  }
+}
+
+/* Tabletnézet */
+
+@media (max-width: 768px) {
+  .navbar-collapse {
+    text-align: center;
+  }
+
+  .navbar-nav {
+    margin: 0 auto;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .navbar-nav .nav-item {
+    margin: 10px 0;
+  }
+
+  .navbar-nav.ms-auto {
+    margin-top: 15px;
+    flex-direction: column;
+    align-items: center;
+  }
+}
