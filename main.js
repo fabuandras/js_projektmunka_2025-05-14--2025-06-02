@@ -29,16 +29,9 @@ KEZDOLAPGOMB.addEventListener("click", () => {
 });
 
 TERMEKEKGOMB.addEventListener("click", () => {
-  TAROLO.innerHTML = `
-    <article class="col-lg-9 row" id="termekekTarolo"></article>
-    <aside class="col-lg-3" id="kosarTarolo"></aside>
-  `;
-
+  TAROLO.innerHTML = `<article class="col-lg-12 row" id="termekekTarolo"></article>`;
   const termekTarolo = document.getElementById("termekekTarolo");
-  const kosarTarolo = document.getElementById("kosarTarolo");
-
-  termekek.megjelenit(termekTarolo); // ezt meg kell támogatni
-  new Kosar(kosarTarolo);
+  termekek.megjelenit(termekTarolo);
 });
 
 URLAPGOMB.addEventListener("click", () => {
@@ -63,3 +56,25 @@ megjelenitKezdolap(velemenyek);
 
 // Alapértelmezett indulás: kezdőlap megjelenítése
 megjelenitKezdolap();
+
+// Kosár init
+const kosarTarolo = document.getElementById("kosarTarolo");
+const overlay = document.getElementById("overlay");
+const kosar = new Kosar(kosarTarolo);
+
+// Kosár gomb esemény
+KOSARGOMB.addEventListener("click", () => {
+  kosarTarolo.classList.add("nyitva");
+  overlay.classList.add("aktiv");
+});
+
+// Overlay kattintásra kosár bezárása
+overlay.addEventListener("click", () => {
+  kosarTarolo.classList.remove("nyitva");
+  overlay.classList.remove("aktiv");
+});
+
+document.querySelector('.kosar-bezaras').addEventListener('click', () => {
+  document.querySelector('.kosar-aside').classList.remove('nyitva');
+  document.querySelector('.overlay').classList.remove('aktiv');
+});

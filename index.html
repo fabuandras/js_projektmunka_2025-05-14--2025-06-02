@@ -42,15 +42,10 @@
           <a class="navbar-brand" href="#">Ikon</a>
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item" id="kezdolap">
-              <a class="nav-link active" aria-current="page" href="#"
-                >Kezdőlap</a
-              >
+              <a class="nav-link active" aria-current="page" href="#">Kezdőlap</a>
             </li>
             <li class="nav-item" id="publicTermek">
               <a class="nav-link active" href="#">Termékek</a>
-            </li>
-            <li class="nav-item" id="publicKosar">
-              <a class="nav-link" href="#">🛒 Kosár</a>
             </li>
             <li class="nav-item" id="urlap">
               <a class="nav-link" href="#">Vélemény</a>
@@ -59,12 +54,21 @@
               <a class="nav-link" href="#">Adatbekérés</a>
             </li>
           </ul>
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item" id="publicKosar">
+              <a class="nav-link" href="#">🛒 Kosár</a>
+            </li>
+          </ul>
         </div>
       </div>
     </nav>
     <main class="row" id="tarolo">
       <!-- Dinamikus tartalom ide kerül -->
     </main>
+    <div id="overlay" class="overlay"></div>
+    <aside id="kosarTarolo" class="kosar-aside">
+      <button class="kosar-bezaras">&times;</button>
+    </aside>
     <footer>Legjobb Csapat</footer>
   </body>
 </html>

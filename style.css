@@ -30,6 +30,64 @@ footer {
   font-weight: 600;
 }
 
+/* kosar cuccok */
+/* Kosár rejtve oldalról */
+.kosar-aside {
+    position: fixed;
+    top: 0;
+    right: -520px;
+    width: 460px;
+    height: 100%;
+    background-color: white;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.3);
+    transition: right 0.3s ease-in-out;
+    z-index: 1001;
+    padding: 1rem;
+    overflow-y: auto;
+}
+
+/* Kosár látható állapota */
+.kosar-aside.nyitva {
+    right: 0;
+}
+
+/* Kosár bezáró X gomb */
+.kosar-bezaras {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #5a3e1b;
+  cursor: pointer;
+  z-index: 1010;
+  transition: color 0.2s ease;
+}
+
+.kosar-bezaras:hover {
+  color: #a67c00;
+}
+
+/* Háttér elsötétítés */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.5);
+    z-index: 1000;
+    display: none;
+}
+
+/* Háttér látható állapota */
+.overlay.aktiv {
+    display: block;
+}
+
+
 /* Termékek konténer */
 #termekekContainer {
   display: grid;
@@ -269,7 +327,6 @@ footer {
   align-items: stretch;
 }
 
-
 .termekKartya .card {
   height: 100%;
   display: grid;
@@ -393,4 +450,53 @@ footer {
   margin-right: 1.5rem;
   box-shadow: 0 4px 8px rgba(0,0,0,0.15);
   flex-shrink: 0;
+}
+
+@media screen and (max-width: 768px) {
+  /* Kosár kisebb méretű kijelzőre */
+  .kosar-aside {
+    width: 100%;
+    right: -100%;
+  }
+
+  .kosar-aside.nyitva {
+    right: 0;
+  }
+
+  /* Termékek grid kisebb oszlopmérettel */
+  #termekekContainer {
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  /* Termékkártya testreszabása mobilra */
+  .termekKartya .card-body {
+    padding: 1rem;
+  }
+
+  .termekKartya button {
+    font-size: 0.9rem;
+    padding: 0.4rem 1rem;
+  }
+
+  /* Vélemény űrlap kisebb padding */
+  #velemenyForm,
+  #adatform {
+    padding: 1rem;
+  }
+
+  /* Kezdőlap szövegblokk szűkebb margóval */
+  .kezdolap-article {
+    margin: 1rem;
+    padding: 1rem;
+  }
+
+  .kezdolap-article section h2 {
+    font-size: 1.5rem;
+  }
+
+  .kezdolap-article section p {
+    font-size: 1rem;
+  }
 }

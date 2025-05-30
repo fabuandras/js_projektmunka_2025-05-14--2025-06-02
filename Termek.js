@@ -15,6 +15,7 @@ export default class Termek {
         termekKartya.classList.add("col-md-4");
         termekKartya.classList.add("col-lg-3");
         termekKartya.classList.add("col-sm-6");
+        termekKartya.classList.add("mb-4");
        
         termekKartya.innerHTML = `
             <div class="card m-2">
