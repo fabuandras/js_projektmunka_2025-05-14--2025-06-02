@@ -70,6 +70,22 @@ footer {
   color: #a67c00;
 }
 
+#kosarTarolo {
+    transition: right 0.3s ease;
+    position: fixed;
+    right: -400px;
+    width: 400px;
+    top: 0;
+    bottom: 0;
+    background: white;
+    z-index: 1000;
+    overflow-y: auto;
+}
+
+#kosarTarolo.nyitva {
+    right: 0;
+}
+
 /* Háttér elsötétítés */
 .overlay {
     position: fixed;

@@ -14,7 +14,10 @@ export default class Kosar {
 
     megjelenit() {
         this.#kosarElem.innerHTML = `
-            <h3 class="mb-3">🛒 Kosár</h3>
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h3>🛒 Kosár</h3>
+                <button class="btn btn-sm btn-outline-secondary" id="kosar-bezaras" title="Kosár bezárása">❌</button>
+            </div>
             <ul id="kosarLista" class="list-group"></ul>
         `;
 
@@ -37,6 +40,15 @@ export default class Kosar {
                     const index = parseInt(e.target.dataset.index);
                     this.torles(index);
                 });
+            });
+        }
+
+        // Bezáró gomb eseménykezelő
+        const bezarasGomb = this.#kosarElem.querySelector("#kosar-bezaras");
+        if (bezarasGomb) {
+            bezarasGomb.addEventListener("click", () => {
+                document.getElementById("kosarTarolo")?.classList.remove("nyitva");
+                document.getElementById("overlay")?.classList.remove("aktiv");
             });
         }
     }

@@ -78,3 +78,8 @@ document.querySelector('.kosar-bezaras').addEventListener('click', () => {
   document.querySelector('.kosar-aside').classList.remove('nyitva');
   document.querySelector('.overlay').classList.remove('aktiv');
 });
+
+document.getElementById("kosarGomb").addEventListener("click", () => {
+    document.getElementById("kosarTarolo").classList.add("nyitva");
+    document.getElementById("overlay")?.classList.add("aktiv");
+});
