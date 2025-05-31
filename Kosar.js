@@ -15,10 +15,12 @@ export default class Kosar {
     megjelenit() {
         this.#kosarElem.innerHTML = `
             <div class="d-flex justify-content-between align-items-center mb-3">
-                <h3>🛒 Kosár</h3>
+                <h3>🛒Kosár</h3>
                 <button class="btn btn-sm btn-outline-secondary" id="kosar-bezaras" title="Kosár bezárása">❌</button>
             </div>
             <ul id="kosarLista" class="list-group"></ul>
+            <div id="kosarOsszeg" class="mt-3 text-end fw-bold"></div>
+            <button id="rendelesGomb" class="btn btn-success mt-2 w-100">Rendelés leadása</button>
         `;
 
         const listaElem = this.#kosarElem.querySelector("#kosarLista");
@@ -68,6 +70,19 @@ export default class Kosar {
                 document.getElementById("overlay")?.classList.remove("aktiv");
             });
         }
+        const osszeg = this.#kosarLista.reduce((sum, t) => sum + t.ar * t.db, 0);
+        this.#kosarElem.querySelector("#kosarOsszeg").textContent = `Végösszeg: ${this.#formatAr(osszeg)} Ft`;
+
+        const rendelesGomb = this.#kosarElem.querySelector("#rendelesGomb");
+        rendelesGomb.addEventListener("click", () => {
+            if (this.#kosarLista.length === 0) {
+                alert("❗A kosár üres!");
+            } else {
+                alert("✅Köszönjük, a rendelését rögzítettük!");
+                this.#kosarLista = [];
+                this.megjelenit();
+            }
+        });
     }
 
     hozzaad(termek) {
