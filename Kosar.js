@@ -5,8 +5,6 @@ export default class Kosar {
     constructor(szuloElem) {
         this.#kosarElem = szuloElem;
         this.megjelenit();
-
-        // Figyeljük a "kosarba" eseményt
         window.addEventListener("kosarba", (event) => {
             this.hozzaad(event.detail);
         });
@@ -24,7 +22,6 @@ export default class Kosar {
         `;
 
         const listaElem = this.#kosarElem.querySelector("#kosarLista");
-
         if (this.#kosarLista.length === 0) {
             listaElem.innerHTML = `<li class="list-group-item">A kosár üres</li>`;
         } else {
@@ -59,10 +56,8 @@ export default class Kosar {
                     }
                 });
             });
-
         }
 
-        // Bezáró gomb eseménykezelő
         const bezarasGomb = this.#kosarElem.querySelector("#kosar-bezaras");
         if (bezarasGomb) {
             bezarasGomb.addEventListener("click", () => {
@@ -116,5 +111,9 @@ export default class Kosar {
 
     #formatAr(szam) {
         return szam.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+    }
+    
+    getKosarLista() {
+        return this.#kosarLista;
     }
 }
