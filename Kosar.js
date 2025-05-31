@@ -76,9 +76,9 @@ export default class Kosar {
         const rendelesGomb = this.#kosarElem.querySelector("#rendelesGomb");
         rendelesGomb.addEventListener("click", () => {
             if (this.#kosarLista.length === 0) {
-                alert("❗A kosár üres!");
+                alert("❗ A kosár üres!");
             } else {
-                alert("✅Köszönjük, a rendelését rögzítettük!");
+                alert("✅ Köszönjük, a rendelését rögzítettük!");
                 this.#kosarLista = [];
                 this.megjelenit();
             }

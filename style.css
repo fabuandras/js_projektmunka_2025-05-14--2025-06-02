@@ -73,8 +73,8 @@ footer {
 #kosarTarolo {
     transition: right 0.3s ease;
     position: fixed;
-    right: -450px;
-    width: 450px;
+    right: -420px;
+    width: 420px;
     top: 0;
     bottom: 0;
     background: white;
@@ -102,7 +102,6 @@ footer {
 .overlay.aktiv {
     display: block;
 }
-
 
 /* Termékek konténer */
 #termekekContainer {
@@ -468,15 +467,87 @@ footer {
   flex-shrink: 0;
 }
 
-@media screen and (max-width: 768px) {
-  /* Kosár kisebb méretű kijelzőre */
-  .kosar-aside {
-    width: 100%;
-    right: -100%;
+@media screen and (max-width: 600px) {
+  /* Kosár teljes szélességű, oldalról becsúszó */
+  .kosar-aside,#kosarTarolo {
+    width: 100vw;
+    right: -100vw;
+    padding: 1rem 1.5rem;
   }
 
-  .kosar-aside.nyitva {
+  .kosar-aside.nyitva, #kosarTarolo.nyitva {
     right: 0;
+  }
+
+  /* Kosár bezáró gomb pozíciójának finomítása */
+  .kosar-bezaras {
+    top: 0.8rem;
+    right: 1rem;
+    font-size: 2.5rem;
+  }
+
+  /* Kosár tartalom - termék lista */
+  .kosar-termek {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  /* Egy termék sora rugalmasan, mobilon blokk jelleggel */
+  .kosar-termek .termek-sor {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    border-bottom: 1px solid #d9c59d;
+    padding-bottom: 1rem;
+  }
+
+  /* Kép kisebb és középre igazított */
+  .kosar-termek .termek-sor img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin: 0 auto;
+  }
+
+  /* Termékinformáció középre rendezve, kisebb betűméret */
+  .kosar-termek .termek-adatok {
+    text-align: center;
+    font-size: 0.9rem;
+  }
+
+  /* Plusz-mínusz gombok horizontálisan középen, szellősen */
+  .kosar-termek .mennyiseg-szabalyzo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 0.5rem;
+  }
+
+  .kosar-termek .mennyiseg-szabalyzo button {
+    font-size: 1.25rem;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+  }
+
+  /* Rendelés gomb teljes szélességű, nagyobb méretű */
+  .kosar-rendeles-gomb {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    margin-top: 1.5rem;
+    background-color: #a67c00;
+    color: #fff7d1;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border: none;
+  }
+  .kosar-rendeles-gomb:hover {
+    background-color: #d0aa18;
   }
 
   /* Termékek grid kisebb oszlopmérettel */
