@@ -74,12 +74,19 @@ overlay.addEventListener("click", () => {
   overlay.classList.remove("aktiv");
 });
 
-document.querySelector('.kosar-bezaras').addEventListener('click', () => {
-  document.querySelector('.kosar-aside').classList.remove('nyitva');
-  document.querySelector('.overlay').classList.remove('aktiv');
-});
+const bezarasGomb = document.querySelector('.kosar-bezaras');
+if (bezarasGomb) {
+  bezarasGomb.addEventListener('click', () => {
+    document.querySelector('.kosar-aside')?.classList.remove('nyitva');
+    document.querySelector('.overlay')?.classList.remove('aktiv');
+  });
+}
 
-document.getElementById("kosarGomb").addEventListener("click", () => {
-    document.getElementById("kosarTarolo").classList.add("nyitva");
+const kosarGomb = document.getElementById("kosarGomb");
+if (kosarGomb) {
+  kosarGomb.addEventListener("click", () => {
+    document.getElementById("kosarTarolo")?.classList.add("nyitva");
     document.getElementById("overlay")?.classList.add("aktiv");
-});
+  });
+}
+  
