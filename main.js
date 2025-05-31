@@ -9,7 +9,6 @@ import { megjelenitKezdolap } from "./Kezdolap.js";  // ide importálod
 // ...
 
 
-
 // DOM elemek
 const KEZDOLAPGOMB = document.getElementById("kezdolap");
 const TERMEKEKGOMB = document.getElementById("publicTermek");
@@ -29,10 +28,40 @@ KEZDOLAPGOMB.addEventListener("click", () => {
 });
 
 TERMEKEKGOMB.addEventListener("click", () => {
-  TAROLO.innerHTML = `<article class="col-lg-12 row" id="termekekTarolo"></article>`;
+  TAROLO.innerHTML = `
+    <div class="row mb-3">
+      <div class="col-md-4">
+        <label for="rendezesSelect" class="form-label">Rendezés ár szerint:</label>
+        <select id="rendezesSelect" class="form-select">
+          <option value="alap">Alapértelmezett</option>
+          <option value="novekvo">Ár szerint növekvő</option>
+          <option value="csokkeno">Ár szerint csökkenő</option>
+        </select>
+      </div>
+      <div class="col-md-4">
+        <label for="szuroInput" class="form-label">Szűrés név alapján:</label>
+        <input type="text" id="szuroInput" class="form-control" placeholder="Írj be egy terméknevet...">
+      </div>
+    </div>
+    <article class="col-lg-12 row" id="termekekTarolo"></article>
+  `;
+
   const termekTarolo = document.getElementById("termekekTarolo");
   termekek.megjelenit(termekTarolo);
+
+  const rendezesSelect = document.getElementById("rendezesSelect");
+  rendezesSelect.addEventListener("change", () => {
+    termekek.rendez(rendezesSelect.value);
+    termekek.megjelenit(termekTarolo);
+  });
+
+  const szuroInput = document.getElementById("szuroInput");
+  szuroInput.addEventListener("input", () => {
+    termekek.szures(szuroInput.value);
+  });
+
 });
+
 
 URLAPGOMB.addEventListener("click", () => {
   urlapBetoltes(TAROLO);
@@ -89,4 +118,9 @@ if (kosarGomb) {
     document.getElementById("overlay")?.classList.add("aktiv");
   });
 }
-  
+
+// Eseményfigyelő a kosárba rakáshoz
+window.addEventListener("kosarba", (event) => {
+  kosarDarab++;
+  frissitKosarSzamlalo(kosarDarab);
+});

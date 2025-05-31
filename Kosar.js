@@ -78,6 +78,19 @@ export default class Kosar {
                 this.megjelenit();
             }
         });
+
+        const szamlaloElem = document.getElementById("kosarSzamlalo");
+            if (szamlaloElem) {
+                const db = this.#kosarLista.reduce((osszes, t) => osszes + t.db, 0);
+            if (db > 0) {
+                szamlaloElem.textContent = db;
+                szamlaloElem.style.display = "inline-block";
+            } else {
+                szamlaloElem.textContent = "";
+                szamlaloElem.style.display = "none";
+            }
+        }
+
     }
 
     hozzaad(termek) {
