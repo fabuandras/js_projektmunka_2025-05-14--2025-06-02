@@ -1,3 +1,6 @@
+import { adatbekeroMegjelenit } from "./Adatbekero.js";
+
+
 export default class Kosar {
     #kosarElem;
     #kosarLista = [];
@@ -18,7 +21,7 @@ export default class Kosar {
             </div>
             <ul id="kosarLista" class="list-group"></ul>
             <div id="kosarOsszeg" class="mt-3 text-end fw-bold"></div>
-            <button id="rendelesGomb" class="btn btn-success mt-2 w-100">Rendelés leadása</button>
+            <button id="rendelesGomb" class="btn btn-success mt-2 w-100">Ugrás az Adatbekérő oldalra</button>
         `;
 
         const listaElem = this.#kosarElem.querySelector("#kosarLista");
@@ -68,6 +71,7 @@ export default class Kosar {
         const osszeg = this.#kosarLista.reduce((sum, t) => sum + t.ar * t.db, 0);
         this.#kosarElem.querySelector("#kosarOsszeg").textContent = `Végösszeg: ${this.#formatAr(osszeg)} Ft`;
 
+        /*
         const rendelesGomb = this.#kosarElem.querySelector("#rendelesGomb");
         rendelesGomb.addEventListener("click", () => {
             if (this.#kosarLista.length === 0) {
@@ -78,6 +82,22 @@ export default class Kosar {
                 this.megjelenit();
             }
         });
+        */
+
+
+        /* itt bevezettük azt, hogy ha a "rendelés leadás" gombra kattintunk, akkor az "Adatbekérő oldalra visz minket" */
+        rendelesGomb.addEventListener("click", () => {
+            if (this.#kosarLista.length === 0) {
+                alert("❗ A kosár üres!");
+            } else {
+                document.getElementById("kosarTarolo")?.classList.remove("nyitva");
+                document.getElementById("overlay")?.classList.remove("aktiv");
+                const tarolo = document.getElementById("tarolo");
+                adatbekeroMegjelenit(tarolo); // csak ide navigálunk!
+            }
+        });
+
+
 
         const szamlaloElem = document.getElementById("kosarSzamlalo");
             if (szamlaloElem) {
@@ -128,5 +148,10 @@ export default class Kosar {
     
     getKosarLista() {
         return this.#kosarLista;
+    }
+
+    kiuritKosar() {
+        this.#kosarLista = [];
+        this.megjelenit();
     }
 }

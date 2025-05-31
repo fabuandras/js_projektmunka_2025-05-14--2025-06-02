@@ -3,7 +3,7 @@ import TERMEKLISTA from "./termekLista.js";
 import Kosar from "./Kosar.js";
 import { urlapBetoltes, urlapInit } from "./Velemeny.js";
 import { adatbekeroMegjelenit } from "./Adatbekero.js";
-import { megjelenitKezdolap } from "./Kezdolap.js";  // ide importálod
+import { megjelenitKezdolap } from "./Kezdolap.js";
 
 
 // ...
@@ -124,3 +124,5 @@ window.addEventListener("kosarba", (event) => {
   kosarDarab++;
   frissitKosarSzamlalo(kosarDarab);
 });
+
+export { kosar };

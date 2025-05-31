@@ -1,3 +1,7 @@
+import { kosar } from "./main.js";
+import { megjelenitKezdolap } from "./Kezdolap.js";
+
+
 export function adatbekeroMegjelenit(tarolo) {
   tarolo.innerHTML = `
     <article class="col-lg-8 offset-lg-2">
@@ -148,28 +152,29 @@ export function adatbekeroMegjelenit(tarolo) {
           </div>
         </div>
 
-        <button type="submit" class="btn btn-success mt-3">Elküld</button>
+        <button type="submit" class="btn btn-success mt-3" id="rendelesLeadasaGomb">Rendelés leadása</button>
       </form>
     </article>
   `;
 
   const form = document.getElementById("adatForm");
 
-  form.addEventListener("submit", (e) => {
+    form.addEventListener("submit", (e) => {
     e.preventDefault();
 
     if (!form.checkValidity()) {
       e.stopPropagation();
       form.classList.add("was-validated");
-      return ;
+      return;
     }
 
-    // Sikeres beküldés
-    alert("Az adatok sikeresen elküldve!");
-    
-    
+    // Ha érvényes a form:
+    alert("✅ A rendelést sikeresen leadtad!");
+    kosar.kiuritKosar(); // Most már csak itt ürül
+    megjelenitKezdolap(); // Kezdőlapra vissza (ha akarod)
 
     form.reset();
     form.classList.remove("was-validated");
   });
+
 }
