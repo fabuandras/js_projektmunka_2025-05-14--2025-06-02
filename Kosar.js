@@ -29,18 +29,35 @@ export default class Kosar {
             listaElem.innerHTML = this.#kosarLista
                 .map((termek, index) => `
                     <li class="list-group-item d-flex justify-content-between align-items-center">
-                        ${termek.nev} – ${termek.db} db – ${termek.ar * termek.db} Ft
-                        <button class="btn btn-sm btn-danger" data-index="${index}">❌</button>
+                        <div class="flex-grow-1 me-3 overflow-hidden">
+                            <div class="text-truncate">${termek.nev}</div>
+                            <div class="fw-semibold">${this.#formatAr(termek.ar * termek.db)} Ft</div>
+                        </div>
+                        <div class="d-flex align-items-center flex-shrink-0">
+                            <button class="btn btn-sm btn-secondary" data-action="decrease" data-index="${index}">−</button>
+                            <span class="mx-2">${termek.db} db</span>
+                            <button class="btn btn-sm btn-secondary" data-action="increase" data-index="${index}">+</button>
+                            <button class="btn btn-sm btn-danger ms-2" data-action="remove" data-index="${index}">❌</button>
+                        </div>
                     </li>
                 `)
                 .join("");
 
-            this.#kosarElem.querySelectorAll("button[data-index]").forEach((gomb) => {
+            this.#kosarElem.querySelectorAll("button[data-action]").forEach((gomb) => {
                 gomb.addEventListener("click", (e) => {
                     const index = parseInt(e.target.dataset.index);
-                    this.torles(index);
+                    const action = e.target.dataset.action;
+
+                    if (action === "remove") {
+                        this.torles(index);
+                    } else if (action === "increase") {
+                        this.noveles(index);
+                    } else if (action === "decrease") {
+                        this.csokkentes(index);
+                    }
                 });
             });
+
         }
 
         // Bezáró gomb eseménykezelő
@@ -66,5 +83,23 @@ export default class Kosar {
     torles(index) {
         this.#kosarLista.splice(index, 1);
         this.megjelenit();
+    }
+
+    noveles(index) {
+        this.#kosarLista[index].db++;
+        this.megjelenit();
+    }
+
+    csokkentes(index) {
+        if (this.#kosarLista[index].db > 1) {
+            this.#kosarLista[index].db--;
+        } else {
+            this.torles(index);
+        }
+        this.megjelenit();
+    }
+
+    #formatAr(szam) {
+        return szam.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
     }
 }
