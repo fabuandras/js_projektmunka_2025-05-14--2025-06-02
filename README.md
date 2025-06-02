@@ -14,6 +14,8 @@ __
 > Feladat leosztása:
 - index.html:
   - Fabu András, Ilyés Borbála (alap)
+- CSS:
+  - Fabu András
 - main.js:
   - Ilyés Borbála
 - termekLista.js:
@@ -21,18 +23,20 @@ __
 - Termek.js:
   - Kovács Tímea (Nao)
 - Termekek.js:
-  - Kovács Tímea (Nao)
+  - Kovács Tímea (Nao), Fabu András
 - Oldal tartalma:
   - Halász Dominika
 - Kosar.js:
-  - Fabu András
+  - Kovács Tímea (Nao)
 - README.md:
   - Halász Dominika
+Adatbekero.js:
+- Ilyés Borbála, Fabu András
 
 __
 
-> Szűrések, rendezések:
-  - Fabu András, Ilyés Borbála
+> Rendezés, szűrés:
+  - Fabu András
 
 __
 
