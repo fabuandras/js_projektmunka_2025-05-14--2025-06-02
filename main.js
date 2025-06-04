@@ -2,8 +2,14 @@ import Termekek from "./Termekek.js";
 import TERMEKLISTA from "./termekLista.js";
 import Kosar from "./Kosar.js";
 import AdatbekeroŰrlap from "./Adatbekero.js";
-import { megjelenitKezdolap } from "./Kezdolap.js";
-import Velemeny from "./Velemeny.js";  // javított import név és fájlnév
+import Velemeny from "./Velemeny.js";
+import Kezdolap from './Kezdolap.js';
+
+const velemenyek = [];  // Vélemények definiálva elsőként
+
+const kezdo = new Kezdolap();
+kezdo.setVelemenyek(velemenyek);
+kezdo.megjelenit();
 
 // DOM elemek
 const KEZDOLAPGOMB = document.getElementById("kezdolap");
@@ -15,7 +21,6 @@ const TAROLO = document.getElementById("tarolo");
 
 // Termékek és vélemények tárolása
 const termekek = new Termekek(TERMEKLISTA, TAROLO);
-const velemenyek = [];
 
 // Kosár init
 const kosarTarolo = document.getElementById("kosarTarolo");
@@ -23,11 +28,11 @@ const overlay = document.getElementById("overlay");
 const kosar = new Kosar(kosarTarolo);
 
 // Kezdőlap megjelenítése (induláskor)
-megjelenitKezdolap(velemenyek);
+kezdo.megjelenit();
 
 // Események
 KEZDOLAPGOMB.addEventListener("click", () => {
-  megjelenitKezdolap(velemenyek);
+  kezdo.megjelenit();
 });
 
 TERMEKEKGOMB.addEventListener("click", () => {
@@ -64,9 +69,8 @@ TERMEKEKGOMB.addEventListener("click", () => {
   });
 });
 
-// ** Itt javítva: Velemeny helyett VelemenyUrlap NINCS! **
 URLAPGOMB.addEventListener("click", () => {
-  new Velemeny(TAROLO, velemenyek, () => megjelenitKezdolap(velemenyek));
+  new Velemeny(TAROLO, velemenyek, () => kezdo.megjelenit());
 });
 
 ADATURLAPGOMB.addEventListener("click", () => {
