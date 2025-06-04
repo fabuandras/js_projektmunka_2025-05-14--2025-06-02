@@ -1,11 +1,9 @@
 import Termekek from "./Termekek.js";
 import TERMEKLISTA from "./termekLista.js";
 import Kosar from "./Kosar.js";
-import { urlapBetoltes, urlapInit } from "./Velemeny.js";
 import AdatbekeroŰrlap from "./Adatbekero.js";
 import { megjelenitKezdolap } from "./Kezdolap.js";
-
-
+import Velemeny from "./Velemeny.js";  // javított import név és fájlnév
 
 // DOM elemek
 const KEZDOLAPGOMB = document.getElementById("kezdolap");
@@ -17,14 +15,19 @@ const TAROLO = document.getElementById("tarolo");
 
 // Termékek és vélemények tárolása
 const termekek = new Termekek(TERMEKLISTA, TAROLO);
-
-
 const velemenyek = [];
 
-// Kezdőlap megjelenítése
+// Kosár init
+const kosarTarolo = document.getElementById("kosarTarolo");
+const overlay = document.getElementById("overlay");
+const kosar = new Kosar(kosarTarolo);
 
+// Kezdőlap megjelenítése (induláskor)
+megjelenitKezdolap(velemenyek);
+
+// Események
 KEZDOLAPGOMB.addEventListener("click", () => {
-  megjelenitKezdolap();
+  megjelenitKezdolap(velemenyek);
 });
 
 TERMEKEKGOMB.addEventListener("click", () => {
@@ -59,45 +62,24 @@ TERMEKEKGOMB.addEventListener("click", () => {
   szuroInput.addEventListener("input", () => {
     termekek.szures(szuroInput.value);
   });
-
 });
 
-
+// ** Itt javítva: Velemeny helyett VelemenyUrlap NINCS! **
 URLAPGOMB.addEventListener("click", () => {
-  urlapBetoltes(TAROLO);
-  urlapInit(TAROLO, velemenyek, megjelenitKezdolap);
+  new Velemeny(TAROLO, velemenyek, () => megjelenitKezdolap(velemenyek));
 });
 
 ADATURLAPGOMB.addEventListener("click", () => {
-  adatbekeroMegjelenit(TAROLO);
-});
-KEZDOLAPGOMB.addEventListener("click", () => {
-  megjelenitKezdolap(velemenyek);
+  new AdatbekeroŰrlap(TAROLO, kosar);
 });
 
-URLAPGOMB.addEventListener("click", () => {
-  urlapBetoltes(TAROLO);
-  urlapInit(TAROLO, velemenyek, () => megjelenitKezdolap(velemenyek));
-});
-
-// Alapértelmezett indulás: kezdőlap megjelenítése
-megjelenitKezdolap(velemenyek);
-
-// Alapértelmezett indulás: kezdőlap megjelenítése
-megjelenitKezdolap();
-
-// Kosár init
-const kosarTarolo = document.getElementById("kosarTarolo");
-const overlay = document.getElementById("overlay");
-const kosar = new Kosar(kosarTarolo);
-
-// Kosár gomb esemény
+// Kosár gomb
 KOSARGOMB.addEventListener("click", () => {
   kosarTarolo.classList.add("nyitva");
   overlay.classList.add("aktiv");
 });
 
-// Overlay kattintásra kosár bezárása
+// Overlay kattintásra bezárás
 overlay.addEventListener("click", () => {
   kosarTarolo.classList.remove("nyitva");
   overlay.classList.remove("aktiv");
@@ -119,7 +101,16 @@ if (kosarGomb) {
   });
 }
 
-// Eseményfigyelő a kosárba rakáshoz
+// (opcionális) Kosár számláló frissítéshez
+let kosarDarab = 0;
+function frissitKosarSzamlalo(darab) {
+  const szamlaloElem = document.getElementById("kosarSzamlalo");
+  if (szamlaloElem) {
+    szamlaloElem.textContent = darab > 0 ? darab : "";
+    szamlaloElem.style.display = darab > 0 ? "inline-block" : "none";
+  }
+}
+
 window.addEventListener("kosarba", (event) => {
   kosarDarab++;
   frissitKosarSzamlalo(kosarDarab);
