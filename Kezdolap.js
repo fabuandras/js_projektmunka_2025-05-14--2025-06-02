@@ -1,45 +1,38 @@
-const TAROLO = document.getElementById("tarolo");
-
 export default class Kezdolap {
   #tarolo;
   #velemenyek;
 
-  constructor(tarolo = TAROLO, velemenyek = []) {
+  constructor(tarolo, velemenyek = []) {
     this.#tarolo = tarolo;
     this.#velemenyek = velemenyek;
+    this.#megjelenit();
   }
 
-  setVelemenyek(velemenyek) {
-    this.#velemenyek = velemenyek;
-  }
-
-  megjelenit() {
+  #megjelenit() {
     this.#tarolo.innerHTML = `
       <article class="col-lg-12 kezdolap-article">
         <section class="mb-5">
           <h2>Rólunk</h2>
           <p>Üzletünk a minőségi, kézzel készített fa ajándéktárgyak szakértője. Kizárólag természetes alapanyagokból, körültekintően válogatott faanyagokból dolgozunk, hogy minden termékünk egyedi, tartós és esztétikus legyen.</p>
-          <p>Minden nálunk kapható darab kézműves mesterek keze munkáját dicséri, akik nagy gondossággal és precizitással alkotják meg az egyszerre elegáns és időtálló ajándékokat. Termékkínálatunkban találhatók dísztárgyak, használati tárgyak, egyedi gravírozott ajándékok, melyek kiváló választások személyes vagy üzleti ajándékozáshoz.</p>
-          <p>Elkötelezettek vagyunk a fenntartható gazdálkodás és a környezetbarát megoldások mellett, így a nálunk vásárolt termékek nemcsak szépek, hanem felelősségteljes választások is. Munkatársaink szívesen segítenek személyre szabott ajándékok tervezésében és kiválasztásában, hogy vásárlóink számára valóban különleges és maradandó élményt nyújtsunk.</p>
+          <p>Minden nálunk kapható darab kézműves mesterek keze munkáját dicséri, akik nagy gondossággal és precizitással alkotják meg az egyszerre elegáns és időtálló ajándékokat.</p>
+          <p>Elkötelezettek vagyunk a fenntartható gazdálkodás és a környezetbarát megoldások mellett...</p>
         </section>
 
         <section class="mb-5">
           <h2>Történetünk</h2>
-          <p>Cégünk alapításakor az volt a célunk, hogy a fa természetes szépségét és melegségét kézzel készített, egyedi ajándéktárgyakban ötvözzük. Hiszünk abban, hogy egy gondosan megmunkált fa ajándék nem csupán tárgy, hanem érték, amely személyes üzenetet hordoz, és maradandó emlékeket teremt.</p>
-          <p>Minden termékünk mesterségbeli tudásról és elhivatottságról tanúskodik. Munkatársaink gondosan válogatják az alapanyagokat, és a legapróbb részletekre is odafigyelnek a készítés során, hogy vásárlóink számára valóban különleges, időtálló darabokat kínálhassunk.</p>
-          <p>Számunkra fontos, hogy a kézműves munka és a fenntarthatóság kéz a kézben járjon. Ezért törekszünk környezetbarát forrásból származó faanyagok felhasználására, és támogatjuk a helyi kézműves közösségeket.</p>
-          <p>Üzletünk nem csak egy bolt, hanem egy hely, ahol a természetes anyagok és a kreativitás találkozik. Hiszünk abban, hogy az általunk készített ajándékok képesek közelebb hozni egymáshoz az embereket, és maradandó értéket képviselnek mind az ajándékozó, mind az ajándékozott számára.</p>
+          <p>Cégünk alapításakor az volt a célunk, hogy a fa természetes szépségét és melegségét kézzel készített, egyedi ajándéktárgyakban ötvözzük...</p>
+          <p>Minden termékünk mesterségbeli tudásról és elhivatottságról tanúskodik...</p>
+          <p>Számunkra fontos, hogy a kézműves munka és a fenntarthatóság kéz a kézben járjon...</p>
+          <p>Üzletünk nem csak egy bolt, hanem egy hely, ahol a természetes anyagok és a kreativitás találkozik...</p>
         </section>
 
         <section class="mb-5">
           <h2>Munkatársak: Csapatunk</h2>
-          <p>Üzletünk sikerének kulcsa elkötelezett és szakértő munkatársainkban rejlik, akik nemcsak a fa megmunkálásának mesterei, hanem a kézműves alkotás iránti szenvedélyük is inspirálja őket.</p>
-
           <div class="card mb-3 d-flex flex-row align-items-center">
             <img src="kepek/Munkatars1.jpg" alt="Kovács Anna" class="munkatars-kep" />
             <div class="card-body">
               <h5 class="card-title">Kovács Anna – Művészeti vezető</h5>
-              <p class="card-text">Anna több mint tíz éve foglalkozik fa megmunkálással és designnal. Kreatív látásmódjával és precizitásával biztosítja, hogy minden termékünk egyszerre legyen esztétikus és időtálló.</p>
+              <p class="card-text">Anna több mint tíz éve foglalkozik fa megmunkálással és designnal...</p>
             </div>
           </div>
 
@@ -55,7 +48,7 @@ export default class Kezdolap {
             <img src="kepek/Munkatars3.jpg" alt="Kiss Éva" class="munkatars-kep" />
             <div class="card-body">
               <h5 class="card-title">Kiss Éva – Ügyfélszolgálati szakértő</h5>
-              <p class="card-text">Éva az a mosoly az üzletben, aki minden vásárlónkat személyre szabott tanáccsal lát el, és gondoskodik róla, hogy a vásárlási élmény zökkenőmentes és kellemes legyen.</p>
+              <p class="card-text">Éva az a mosoly az üzletben, aki minden vásárlónkat személyre szabott tanáccsal lát el...</p>
             </div>
           </div>
 
@@ -69,17 +62,24 @@ export default class Kezdolap {
               this.#velemenyek.length === 0
                 ? `<p>Még nincs vélemény.</p>`
                 : this.#velemenyek
-                    .map(velemeny => `
-                      <div class="card mb-3">
-                        <div class="card-body">
-                          <h5 class="card-title">${velemeny.nev} 
-                            <small class="text-warning">${'★'.repeat(velemeny.ertekeles)}${'☆'.repeat(5 - velemeny.ertekeles)}</small>
-                          </h5>
-                          <p class="card-text">${velemeny.velemeny}</p>
-                          ${velemeny.kepURL ? `<img src="${velemeny.kepURL}" alt="Csatolt kép" class="img-fluid" style="max-height: 200px;"/>` : ''}
-                        </div>
-                      </div>
-                    `)
+                    .map(
+                      (velemeny) => `
+              <div class="card mb-3">
+                <div class="card-body">
+                  <h5 class="card-title">${velemeny.nev}
+                    <small class="text-warning">
+                      ${'★'.repeat(velemeny.ertekeles)}${'☆'.repeat(5 - velemeny.ertekeles)}
+                    </small>
+                  </h5>
+                  <p class="card-text">${velemeny.velemeny}</p>
+                  ${
+                    velemeny.kepURL
+                      ? `<img src="${velemeny.kepURL}" alt="Csatolt kép" class="img-fluid" style="max-height: 200px;" />`
+                      : ''
+                  }
+                </div>
+              </div>`
+                    )
                     .join('')
             }
           </div>
@@ -87,11 +87,4 @@ export default class Kezdolap {
       </article>
     `;
   }
-}
-
-const kezdo = new Kezdolap();
-
-export function megjelenitKezdolap(velemenyek = []) {
-  kezdo.setVelemenyek(velemenyek);
-  kezdo.megjelenit();
 }
