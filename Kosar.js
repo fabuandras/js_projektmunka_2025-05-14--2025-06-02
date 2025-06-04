@@ -1,4 +1,5 @@
-import { adatbekeroMegjelenit } from "./Adatbekero.js";
+import AdatbekeroUrlap from "./Adatbekero.js";
+
 
 
 export default class Kosar {
@@ -10,6 +11,8 @@ export default class Kosar {
         this.megjelenit();
         window.addEventListener("kosarba", (event) => {
             this.hozzaad(event.detail);
+            // adatbekeroMegjelenit(tarolo);
+            
         });
     }
 
@@ -87,15 +90,16 @@ export default class Kosar {
 
         /* itt bevezettük azt, hogy ha a "rendelés leadás" gombra kattintunk, akkor az "Adatbekérő oldalra visz minket" */
         rendelesGomb.addEventListener("click", () => {
-            if (this.#kosarLista.length === 0) {
-                alert("❗ A kosár üres!");
-            } else {
-                document.getElementById("kosarTarolo")?.classList.remove("nyitva");
-                document.getElementById("overlay")?.classList.remove("aktiv");
-                const tarolo = document.getElementById("tarolo");
-                adatbekeroMegjelenit(tarolo); // csak ide navigálunk!
-            }
-        });
+    if (this.#kosarLista.length === 0) {
+        alert("❗ A kosár üres!");
+    } else {
+        document.getElementById("kosarTarolo")?.classList.remove("nyitva");
+        document.getElementById("overlay")?.classList.remove("aktiv");
+
+        const tarolo = document.getElementById("tarolo");
+        new AdatbekeroUrlap(tarolo, this);
+    }
+});
 
 
 
@@ -154,4 +158,5 @@ export default class Kosar {
         this.#kosarLista = [];
         this.megjelenit();
     }
+    
 }

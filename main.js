@@ -2,11 +2,9 @@ import Termekek from "./Termekek.js";
 import TERMEKLISTA from "./termekLista.js";
 import Kosar from "./Kosar.js";
 import { urlapBetoltes, urlapInit } from "./Velemeny.js";
-import { adatbekeroMegjelenit } from "./Adatbekero.js";
+import AdatbekeroŰrlap from "./Adatbekero.js";
 import { megjelenitKezdolap } from "./Kezdolap.js";
 
-
-// ...
 
 
 // DOM elemek
@@ -19,6 +17,8 @@ const TAROLO = document.getElementById("tarolo");
 
 // Termékek és vélemények tárolása
 const termekek = new Termekek(TERMEKLISTA, TAROLO);
+
+
 const velemenyek = [];
 
 // Kezdőlap megjelenítése
