@@ -27,7 +27,7 @@
 .hero-content {
   position: absolute;
   top: 50%;
-  left: 40%;
+  left: 50%;
   transform: translate(-50%, -50%);
   z-index: 10;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
@@ -135,4 +135,151 @@
     flex-direction: column;
     align-items: center;
   }
+}
+
+
+/* rólunk section */
+
+.section-rolunk {
+  background-color: rgba(28, 28, 28)
+}
+
+.rolunk-cim {
+    text-transform: uppercase;
+    color: #a3a3ad;
+    font-weight: bold;
+    font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+}
+
+
+.rolunk-szoveg {
+    background: linear-gradient(to bottom right, #1f1f1f, #2c2c2c); /* sötétszürke árnyalat */
+    color: #f2f2f2; /* világos szöveg a sötét háttéren */
+    border: 1px solid #444;
+    padding: 2rem;
+    border-radius: 12px;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    text-align: justify;
+    max-width: 900px;
+    margin: 0 auto;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+}
+
+.rolunk-szoveg p {
+    margin-bottom: 1.5rem;
+}
+
+
+/* Csapatunk section */
+
+
+.section-csapatunk {
+  background-color: #f8f5f0; /* világos, meleg krém szín */
+  color: #2e2e2e;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 5rem 0;
+  text-align: center;
+}
+
+.section-csapatunk h2 {
+  font-weight: 800;
+  font-size: 2.75rem;
+  margin-bottom: 1rem;
+  color: #4e3629; /* sötétebb barna tónus */
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.section-csapatunk .rolunk-cim {
+  color: #222;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+}
+
+.section-csapatunk p {
+  max-width: 650px;
+  margin: 0 auto 3rem auto;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+.team-card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 2.2rem 1.8rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2) !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.team-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
+}
+
+.team-card img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #d1bfa7; /* finom bézs keret */
+  margin-bottom: 1.5rem;
+}
+
+.team-card h5 {
+  font-weight: 700;
+  font-size: 1.6rem;
+  margin-bottom: 0.2rem;
+  color: #3e2d24;
+}
+
+.team-card small {
+  color: #a3866d;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.team-card p {
+  font-size: 0.95rem;
+  color: #5a5a5a;
+  line-height: 1.5;
+  flex-grow: 1;
+}
+
+.fst-italic {
+  max-width: 650px;
+  margin-top: 4rem;
+  margin-inline: auto;
+  font-style: italic;
+  color: #6c6c6c;
+  font-size: 1.05rem;
+}
+
+/* footer */
+
+.footer {
+  background-color: #222;
+}
+
+.footer a {
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer a:hover {
+  color: #ffc107;
+}
+
+.footer ul {
+  padding: 0;
+  list-style: none;
 }
