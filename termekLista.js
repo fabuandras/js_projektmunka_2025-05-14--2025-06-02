@@ -1,7 +1,7 @@
  const TERMEKLISTA = [
   {
     id: 1,
-    kep: "js_projektmunka_2025-05-14-tol_2025-06-04-ig/kepek/termekek/gravirozott_fa_kulcstarto.png",
+    kep: "kepek/termekek/gravirozott_fa_kulcstarto.png",
     nev: "Gravírozott fa kulcstartó",
     ar: 1490,
     leiras: "Egyedi névvel vagy szöveggel gravírozott kulcstartó természetes fából."
