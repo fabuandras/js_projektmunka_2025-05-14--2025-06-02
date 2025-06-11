@@ -13,8 +13,8 @@ export default class Velemeny {
 
   #megjelenit() {
     this.#tarolo.innerHTML = `
-      <article class="col-lg-12">
-        <h2>Vélemény</h2>
+      <article class="col-lg-12" style="padding-top: 200px; padding-bottom: 300px;">
+        <h2 class="text-center mb-4">Írd meg véleményed!</h2>
         <form id="velemenyForm" novalidate>
           <div class="mb-3">
             <label for="nev" class="form-label">Név</label>

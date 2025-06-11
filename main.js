@@ -37,20 +37,21 @@ KEZDOLAPGOMB.addEventListener("click", () => {
 
 TERMEKEKGOMB.addEventListener("click", () => {
   TAROLO.innerHTML = `
-    <div class="row mb-3">
-      <div class="col-md-4">
-        <label for="rendezesSelect" class="form-label">Rendezés ár szerint:</label>
-        <select id="rendezesSelect" class="form-select">
-          <option value="alap">Alapértelmezett</option>
-          <option value="novekvo">Ár szerint növekvő</option>
-          <option value="csokkeno">Ár szerint csökkenő</option>
-        </select>
-      </div>
-      <div class="col-md-4">
-        <label for="szuroInput" class="form-label">Szűrés név alapján:</label>
-        <input type="text" id="szuroInput" class="form-control" placeholder="Írj be egy terméknevet...">
-      </div>
-    </div>
+    <div class="row mb-3 szuro-blokk">
+  <div class="col-md-4">
+    <label for="rendezesSelect" class="form-label">Rendezés ár szerint:</label>
+    <select id="rendezesSelect" class="form-select">
+      <option value="alap">Alapértelmezett</option>
+      <option value="novekvo">Ár szerint növekvő</option>
+      <option value="csokkeno">Ár szerint csökkenő</option>
+    </select>
+  </div>
+  <div class="col-md-4">
+    <label for="szuroInput" class="form-label">Szűrés név alapján:</label>
+    <input type="text" id="szuroInput" class="form-control" placeholder="Írj be egy terméknevet...">
+  </div>
+</div>
+
     <article class="col-lg-12 row" id="termekekTarolo"></article>
   `;
 

@@ -47,4 +47,8 @@ export default class Termekek {
         );
         this.megjelenit();
     }
+
+    getAktualisLista() {
+        return this.#termekekLista;
+    }
 }

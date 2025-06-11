@@ -19,8 +19,8 @@ export default class Kosar {
     megjelenit() {
         this.#kosarElem.innerHTML = `
             <div class="d-flex justify-content-between align-items-center mb-3">
-                <h3>🛒Kosár</h3>
-                <button class="btn btn-sm btn-outline-secondary" id="kosar-bezaras" title="Kosár bezárása">❌</button>
+                <h3><i class="bi bi-cart"></i> Kosár</h3>
+                <button class="btn btn-sm btn-outline-secondary" id="kosar-bezaras" title="Kosár bezárása"><i class="bi bi-x-square"></i></button>
             </div>
             <ul id="kosarLista" class="list-group"></ul>
             <div id="kosarOsszeg" class="mt-3 text-end fw-bold"></div>
@@ -42,7 +42,7 @@ export default class Kosar {
                             <button class="btn btn-sm btn-secondary" data-action="decrease" data-index="${index}">−</button>
                             <span class="mx-2">${termek.db} db</span>
                             <button class="btn btn-sm btn-secondary" data-action="increase" data-index="${index}">+</button>
-                            <button class="btn btn-sm btn-danger ms-2" data-action="remove" data-index="${index}">❌</button>
+                            <button class="btn btn-sm btn-danger ms-2" data-action="remove" data-index="${index}"><i class="bi bi-x-lg"></i></button>
                         </div>
                     </li>
                 `)
