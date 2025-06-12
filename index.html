@@ -11,6 +11,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
     <script type="module" src="main.js"></script>
+    <script type="module" src="teszt/BoriTermekTesz.js"></script>
+
     <!-- <script type="module" src="teszt/NaoKosarTeszt.js"></script> -->
     <!-- <script type="module" src="teszt/AndrasSzuresTeszt.js"></script> -->
     <!-- <script type="module" src="teszt/BoriTeszt.js"></script> -->
@@ -49,9 +51,16 @@
             </div>
         </div>
     </nav>
+
     <main class="row" id="tarolo">
-        <!-- Dinamikus tartalom ide kerül -->
+
+        <form>
+            <label for="nev">Név (csak betűk, szóköz és kötőjel, legalább 2 karakter):</label>
+            <input type="text" name="nev" pattern="^[A-Za-z \-]{2,}$" required />
+            <button type="submit">Küldés</button>
+        </form>
     </main>
+
     <div id="overlay" class="overlay"></div>
     <aside id="kosarTarolo" class="kosar-aside">
         <button class="kosar-bezaras">&times;</button>

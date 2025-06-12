@@ -19,7 +19,7 @@ export default class AdatbekeroUrlap {
           <!-- NÉV -->
           <div class="mb-3">
             <label for="nev" class="form-label">Név:</label>
-            <input type="text" class="form-control" id="nev" required pattern="^[A-Za-z\\s-]{2,}$" placeholder="Pl.: Kiss József"/>
+            <input type="text" class="form-control" id="nev" required pattern="^[A-Za-z \\-]{2,}$" placeholder="Pl.: Kiss József"/>
             <div class="invalid-feedback">Adj meg érvényes nevet (min. 2 betű).</div>
           </div>
           <!-- DÁTUM -->

@@ -1,22 +1,21 @@
-import TERMEKLISTA from "./termekLista.js";
 export default class Termek {
     #adat;
     #szElem;
     #index;
-    constructor(adat, szElem, index) {
+    #esemenyNev;
+
+    constructor(adat, szElem, index, esemenyNev = "kosarba") {
         this.#adat = adat;
         this.#szElem = szElem;
         this.#index = index;
+        this.#esemenyNev = esemenyNev;
         this.megjelenit();
     }
+
     megjelenit() {
         const termekKartya = document.createElement("div");
-        termekKartya.classList.add("termekKartya");
-        termekKartya.classList.add("col-md-4");
-        termekKartya.classList.add("col-lg-3");
-        termekKartya.classList.add("col-sm-6");
-        termekKartya.classList.add("mb-4");
-       
+        termekKartya.classList.add("termekKartya", "col-md-4", "col-lg-3", "col-sm-6", "mb-4");
+
         termekKartya.innerHTML = `
             <div class="card m-2">
                 <img src="${this.#adat.kep}" class="card-img-top" alt="${this.#adat.nev}" />
@@ -28,14 +27,17 @@ export default class Termek {
                 </div>
             </div>
         `;
+
         this.#szElem.appendChild(termekKartya);
         this.#kosarbaGombEsemeny();
     }
+
     #kosarbaGombEsemeny() {
+        console.log(">> kosarbaGombEsemeny meghívva");
         const kosarGomb = document.getElementById(`kosarba${this.#index}`);
         kosarGomb.addEventListener("click", () => {
             console.log(`${this.#adat.nev} hozzáadta a kosarához! :)`);
-            const esemeny = new CustomEvent("kosarba", {
+            const esemeny = new CustomEvent(this.#esemenyNev, {
                 detail: this.#adat,
             });
             window.dispatchEvent(esemeny);
